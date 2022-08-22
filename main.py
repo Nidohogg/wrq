@@ -10,8 +10,8 @@ today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-birthdayboy = os.environ.get('BIRTHDAY')
-remembranceday = os.environ.get('REMEMBRANCEDAY')
+birthdayboy = os.environ.get('03-11')
+remembranceday = os.environ.get('08-19')
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
