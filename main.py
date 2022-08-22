@@ -23,7 +23,7 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather():
   url = "https://www.yiketianqi.com/free/day?appid=98698738&appsecret=HBaaB40E&unescape=1&city=" + city
   res = requests.get(url).json()
-  res=json.loads(res)
+  res = json.loads(str(res).replace("'", "\""))
   weather = res['wea']
   weather = res['tem']
   weather = res['tem_night']
