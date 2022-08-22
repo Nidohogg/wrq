@@ -10,7 +10,7 @@ today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-birthday1 = os.environ['BIRTHDAY1']
+birthdayboy = os.environ['BIRTHDAYBOY']
 remembranceday = os.environ['REMEMBRANCEDAY']
 
 app_id = os.environ["APP_ID"]
@@ -36,8 +36,8 @@ def get_birthday():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
-def get_birthday1():
-  next = datetime.strptime(str(date.today().year) + "-" + birthday1, "%Y-%m-%d")
+def get_birthdayboy():
+  next = datetime.strptime(str(date.today().year) + "-" + birthdayboy, "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
@@ -62,6 +62,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature, min_temp, max_temp = get_weather()
-data = {"weather":{"value":wea},"temperature":{"value":temperature},"min_temperature":{"value":min_temp},"max_temperature":{"value":max_temp},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"birthday1_left":{"value":get_birthday1()},"remembranceday":{"value":remembrance()},"words":{"value":get_words(), "color":get_random_color()}}
+data = {"weather":{"value":wea},"temperature":{"value":temperature},"min_temperature":{"value":min_temp},"max_temperature":{"value":max_temp},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"birthdayboy_left":{"value":get_birthdayboy()},"remembranceday":{"value":remembrance()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
