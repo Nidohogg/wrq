@@ -23,7 +23,7 @@ def get_weather():
   url = "https://www.yiketianqi.com/free/day?appid=98698738&appsecret=HBaaB40E&unescape=1&city=" + city
   res = requests.get(url).json()
   res = []
-  weather = res[]
+  weather = res[0]
   return weather['wea'], math.floor(weather['tem']),math.floor(weather['tem_night']),math.floor(weather['tem_day'])
 
 def get_count():
