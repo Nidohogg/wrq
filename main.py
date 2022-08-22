@@ -10,8 +10,7 @@ today = datetime.now()
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
-birthdayboy = os.environ.get("03-11" )
-remembranceday = os.environ.get( "08-19" )
+
 
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
@@ -37,13 +36,13 @@ def get_birthday():
   return (next - today).days
 
 def get_birthdayboy():
-  next = datetime.strptime(str(date.today().year) + "-" + birthdayboy, "%Y-%m-%d")
+  next = datetime.strptime(str(date.today().year) + "-" + '03-11', "%Y-%m-%d")
   if next < datetime.now():
     next = next.replace(year=next.year + 1)
   return (next - today).days
 
 def get_remembrance():
- next = datetime.strptime(str(date.today().year) + "-" + remembranceday, "%Y-%m-%d")
+ next = datetime.strptime(str(date.today().year) + "-" + '08-19', "%Y-%m-%d")
  if next < datetime.now():
   next = next.replace(year=next.year + 1)
  return (next - today).days
